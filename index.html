@@ -1,33 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>10ioy.xyz</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            padding: 50px;
-            line-height: 1.6;
-        }
-        h1 {
-            font-size: 72px;
-            color: #333;
-        }
-        .about-me {
-            margin-top: 40px;
-            color: #666;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>RandomBlenderGuy</title>
+  <style>
+    body { max-width: 680px; margin: 24px auto; padding: 0 16px; background: #fff; color: #222; font: 16px/1.5 Arial, sans-serif; }
+    header { margin-bottom: 24px; }
+    .brand { color: #222; font-size: 24px; font-weight: bold; text-decoration: none; }
+    nav { margin-top: 8px; }
+    nav a { margin-right: 12px; color: #00e; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 21px; }
+    section { margin: 26px 0; }
+    footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid #ccc; color: #666; font-size: 14px; }
+  </style>
 </head>
 <body>
-    <h1>Hello world!</h1></h1>
-    <div class="about-me">
-        <h2>My little corner of the internet!</h2>
-        <p></p>
-    </div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="RandomBlenderGuy home">RandomBlenderGuy</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Welcome to my corner of the web.</h1>
+      <p class="lead">I'm RandomBlenderGuy, also known as <strong>RBG or RNDBG</strong>. This is my site where I share all my projects I work on, or tell you more about myself.</p>
+      <p class="intro-note">Use the links above to learn a little about me or explore my projects.</p>
+    </section>
+
+    <section id="about">
+      <h1>About Me</h1>
+      <p class="lead">I'm RandomBlenderGuy, and I go by RBG or RNDBG online.</p>
+      <div class="empty-state">
+        <p><strong>A little more about me</strong></p>
+        <p>I'm a developer on Android Studio, and Blender user with a love for creating 3D models and animations. When I'm not coding, You'll maybe find me playing games. I like to play games like Minecraft, MSFS 2024, Forza Horizon 6,5,4, and 3 editions, and maybe some Roblox.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+  <h1>Projects</h1>
+  <p class="lead">
+    A few things I've made, explored, or am currently working on.
+  </p>
+
+  <div class="projects-grid">
+    <article class="project-card">
+      <h2>Sound-To-Haptics</h2>
+      <p>
+        An Android app that converts audio into haptic tracks
+        for synchronized hapticfeedback.
+      </p>
+      <a
+        href="https://github.com/RNDMBG/Sound-To-Haptics"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Repository ↗
+      </a>
+    </article>
+
+    <article class="project-card">
+      <h2>Trellis 3.2.8 Open Source</h2>
+      <p>
+        An open-source, ARM64-recompiled version of the
+        decompiled Vine 3.2.8 Android application.
+      </p>
+      <a
+        href="https://github.com/RNDMBG/Trellis-3.2.8-Open-Source"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Repository ↗
+      </a>
+    </article>
+  </div>
+
+  <p class="github-link">
+    <a
+      href="https://github.com/RNDMBG?tab=repositories"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      You may find more on my GitHub profile ↗
+    </a>
+  </p>
+</section>
+  </main>
+
+  <footer>Made by RandomBlenderGuy, and some dreams.</footer>
+  <script>
+    (() => {
+      const pages = Array.from(document.querySelectorAll('main > section'));
+      const links = Array.from(document.querySelectorAll('a[href^="#"]'));
+
+      function showPage() {
+        const requested = location.hash.slice(1);
+        const pageId = pages.some((page) => page.id === requested) ? requested : 'home';
+        pages.forEach((page) => {
+          page.hidden = page.id !== pageId;
+        });
+        links.forEach((link) => {
+          if (link.getAttribute('href') === '#' + pageId) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      window.addEventListener('hashchange', showPage);
+      window.addEventListener('popstate', showPage);
+      showPage();
+    })();
+  </script>
 </body>
 </html>
