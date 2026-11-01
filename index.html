@@ -8,21 +8,21 @@
 
   <style>
     body {
-      max-width: 680px;
+      max-width: 760px;
       margin: 24px auto;
       padding: 0 16px;
       background: #fff;
-      color: #222;
-      font: 16px/1.5 Arial, sans-serif;
+      color: #111;
+      font: 16px/1.5 "Times New Roman", Times, serif;
     }
 
     header {
-      margin-bottom: 24px;
+      margin-bottom: 12px;
     }
 
     .brand {
-      color: #222;
-      font-size: 24px;
+      color: #111;
+      font-size: 25px;
       font-weight: bold;
       text-decoration: none;
     }
@@ -32,57 +32,100 @@
     }
 
     nav a {
-      margin-right: 12px;
-      color: #00e;
+      margin-right: 8px;
     }
 
     nav a[aria-current="page"] {
+      color: #111;
       font-weight: bold;
+      text-decoration: none;
     }
 
     h1 {
+      margin-bottom: 8px;
       font-size: 26px;
     }
 
     h2 {
-      font-size: 21px;
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    hr {
+      height: 0;
+      margin: 18px 0;
+      border: 0;
+      border-top: 1px solid #888;
     }
 
     section {
-      margin: 26px 0;
+      margin: 20px 0;
     }
 
-    .projects-grid {
-      display: grid;
-      gap: 16px;
+    .project-search {
+      margin: 16px 0;
     }
 
-    .project-card {
-      padding: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    .project-search label {
+      display: block;
+      margin-bottom: 4px;
     }
 
-    .project-card h2 {
-      margin-top: 0;
+    .project-search input {
+      box-sizing: border-box;
+      width: min(100%, 360px);
+      padding: 5px 7px;
+      border: 1px solid #777;
+      border-radius: 0;
+      background: #fff;
+      color: #111;
+      font: inherit;
     }
 
-    .github-link {
-      margin-top: 20px;
+    #projects-list {
+      padding-left: 24px;
+    }
+
+    #projects-list li {
+      margin: 14px 0;
+    }
+
+    .repo-description {
+      margin: 2px 0;
+    }
+
+    .repo-details {
+      color: #555;
+      font-size: 14px;
     }
 
     footer {
-      margin-top: 36px;
+      margin-top: 28px;
       padding-top: 10px;
-      border-top: 1px solid #ccc;
-      color: #666;
+      border-top: 1px solid #888;
+      color: #555;
       font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        margin-top: 16px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 0 10px 5px 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
+  <header>
     <a class="brand" href="#home" aria-label="RandomBlenderGuy home">
       RandomBlenderGuy
     </a>
@@ -94,64 +137,81 @@
     </nav>
   </header>
 
+  <hr>
+
   <main>
     <section id="home">
       <h1>Welcome to my corner of the web.</h1>
 
-      <p class="lead">
+      <p>
         I'm RandomBlenderGuy, also known as <strong>RBG or RNDBG</strong>.
-        This is my site where I share all my projects I work on, or tell you
+        This is my site where I share projects I work on and tell you a little
         more about myself.
       </p>
 
-      <p class="intro-note">
-        Use the links above to learn a little about me or explore my projects.
-      </p>
+      <p>Use the links above to explore the site.</p>
     </section>
 
-    <section id="about">
+    <section id="about" hidden>
       <h1>About Me</h1>
 
-      <p class="lead">
+      <p>
         I'm RandomBlenderGuy, and I go by RBG or RNDBG online.
       </p>
 
-      <div class="empty-state">
-        <p><strong>A little more about me</strong></p>
+      <hr>
 
-        <p>
-          I'm a developer on Android Studio, and Blender user with a love for
-          creating 3D models and animations. When I'm not coding, You'll maybe
-          find me playing games. I like to play games like Minecraft, MSFS 2024,
-          Forza Horizon 6,5,4, and 3 editions, and maybe some Roblox.
-        </p>
-      </div>
+      <h2>A little more about me</h2>
+
+      <p>
+        I'm an Android Studio developer and Blender user with a love for
+        creating 3D models and animations. When I'm not coding, you might find
+        me playing games like Minecraft, MSFS 2024, Forza Horizon 6, 5, 4, and 3,
+        or Roblox.
+      </p>
     </section>
 
-    <section id="projects">
+    <section id="projects" hidden>
       <h1>Projects</h1>
 
-      <p class="lead">
-        A few things I've made, explored, or am currently working on.
+      <p>
+        A list of things I've made, explored, or am currently working on.
+        This list is loaded from my public GitHub repositories.
       </p>
 
-      <div id="projects-grid" class="projects-grid" aria-live="polite">
-        <p>Loading projects from GitHub…</p>
+      <div class="project-search">
+        <label for="project-filter">Find a project:</label>
+        <input
+          id="project-filter"
+          type="search"
+          placeholder="Search project names and descriptions"
+          autocomplete="off"
+        >
       </div>
 
-      <p class="github-link">
+      <hr>
+
+      <p id="projects-status" aria-live="polite">
+        Loading projects from GitHub…
+      </p>
+
+      <ul id="projects-list" aria-live="polite"></ul>
+
+      <p>
         <a
           href="https://github.com/RNDMBG?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
         >
-          You may find more on my GitHub profile ↗
+          Browse all repositories on my GitHub profile
         </a>
       </p>
     </section>
   </main>
 
-  <footer>Made by RandomBlenderGuy, and some dreams.</footer>
+  <footer>
+    Made by RandomBlenderGuy, and some dreams.
+  </footer>
 
   <script>
     (() => {
@@ -161,9 +221,9 @@
       );
 
       function showPage() {
-        const requested = location.hash.slice(1);
-        const pageId = pages.some((page) => page.id === requested)
-          ? requested
+        const requestedPage = location.hash.slice(1);
+        const pageId = pages.some((page) => page.id === requestedPage)
+          ? requestedPage
           : "home";
 
         pages.forEach((page) => {
@@ -171,7 +231,7 @@
         });
 
         navigationLinks.forEach((link) => {
-          if (link.getAttribute("href") === "#" + pageId) {
+          if (link.getAttribute("href") === `#${pageId}`) {
             link.setAttribute("aria-current", "page");
           } else {
             link.removeAttribute("aria-current");
@@ -185,14 +245,72 @@
     })();
 
     async function loadGitHubProjects() {
-      const grid = document.getElementById("projects-grid");
+      const list = document.getElementById("projects-list");
+      const status = document.getElementById("projects-status");
+      const filter = document.getElementById("project-filter");
 
-      if (!grid) return;
+      let repositories = [];
 
-      grid.setAttribute("aria-busy", "true");
+      function renderProjects(query = "") {
+        const normalizedQuery = query.trim().toLowerCase();
+
+        const matchingRepositories = repositories.filter((repository) => {
+          const searchableText =
+            `${repository.name} ${repository.description || ""}`.toLowerCase();
+
+          return searchableText.includes(normalizedQuery);
+        });
+
+        list.replaceChildren();
+
+        if (matchingRepositories.length === 0) {
+          status.textContent = normalizedQuery
+            ? "No projects match your search."
+            : "No public repositories found.";
+          return;
+        }
+
+        status.textContent = `${matchingRepositories.length} public project${
+          matchingRepositories.length === 1 ? "" : "s"
+        } found.`;
+
+        for (const repository of matchingRepositories) {
+          const item = document.createElement("li");
+
+          const title = document.createElement("h2");
+          title.textContent = repository.name;
+
+          const description = document.createElement("p");
+          description.className = "repo-description";
+          description.textContent =
+            repository.description?.trim() ||
+            "No description added on GitHub yet.";
+
+          const link = document.createElement("a");
+          link.href = repository.html_url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "View repository";
+
+          item.append(title, description, link);
+
+          if (repository.language) {
+            const details = document.createElement("p");
+            details.className = "repo-details";
+            details.textContent = `Main language: ${repository.language}`;
+            item.append(details);
+          }
+
+          list.append(item);
+        }
+      }
+
+      filter.addEventListener("input", () => {
+        renderProjects(filter.value);
+      });
 
       try {
-        const repositories = [];
+        const allRepositories = [];
 
         // Fetch every page of public repositories.
         for (let page = 1; ; page++) {
@@ -217,64 +335,22 @@
           }
 
           const batch = await response.json();
-          repositories.push(...batch);
+          allRepositories.push(...batch);
 
           if (batch.length < 100) {
             break;
           }
         }
 
-        // Show the newest-created repositories first.
-        repositories.sort(
+        repositories = allRepositories.sort(
           (a, b) => new Date(b.created_at) - new Date(a.created_at)
         );
 
-        if (repositories.length === 0) {
-          grid.replaceChildren(
-            document.createTextNode("No public repositories found.")
-          );
-          return;
-        }
-
-        const cards = repositories.map((repository) => {
-          const card = document.createElement("article");
-          card.className = "project-card";
-
-          const title = document.createElement("h2");
-          title.textContent = repository.name;
-
-          const description = document.createElement("p");
-          description.textContent =
-            repository.description?.trim() ||
-            "No description added on GitHub yet.";
-
-          const link = document.createElement("a");
-          link.href = repository.html_url;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = "View Repository ↗";
-
-          card.append(title, description, link);
-          return card;
-        });
-
-        grid.replaceChildren(...cards);
+        renderProjects(filter.value);
       } catch (error) {
         console.error("Could not load GitHub repositories:", error);
-
-        const message = document.createElement("p");
-        message.textContent = "Projects could not be loaded right now. ";
-
-        const profileLink = document.createElement("a");
-        profileLink.href = "https://github.com/RNDMBG?tab=repositories";
-        profileLink.target = "_blank";
-        profileLink.rel = "noopener noreferrer";
-        profileLink.textContent = "Browse all repositories on GitHub ↗";
-
-        message.append(profileLink);
-        grid.replaceChildren(message);
-      } finally {
-        grid.removeAttribute("aria-busy");
+        status.textContent =
+          "Projects could not be loaded right now. Please visit my GitHub profile.";
       }
     }
 
