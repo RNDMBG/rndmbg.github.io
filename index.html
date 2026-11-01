@@ -5,21 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <title>RandomBlenderGuy</title>
+
   <style>
-    body { max-width: 680px; margin: 24px auto; padding: 0 16px; background: #fff; color: #222; font: 16px/1.5 Arial, sans-serif; }
-    header { margin-bottom: 24px; }
-    .brand { color: #222; font-size: 24px; font-weight: bold; text-decoration: none; }
-    nav { margin-top: 8px; }
-    nav a { margin-right: 12px; color: #00e; }
-    h1 { font-size: 26px; }
-    h2 { font-size: 21px; }
-    section { margin: 26px 0; }
-    footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid #ccc; color: #666; font-size: 14px; }
+    body {
+      max-width: 680px;
+      margin: 24px auto;
+      padding: 0 16px;
+      background: #fff;
+      color: #222;
+      font: 16px/1.5 Arial, sans-serif;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      color: #222;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav {
+      margin-top: 8px;
+    }
+
+    nav a {
+      margin-right: 12px;
+      color: #00e;
+    }
+
+    nav a[aria-current="page"] {
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 21px;
+    }
+
+    section {
+      margin: 26px 0;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-card {
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .project-card h2 {
+      margin-top: 0;
+    }
+
+    .github-link {
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 10px;
+      border-top: 1px solid #ccc;
+      color: #666;
+      font-size: 14px;
+    }
   </style>
 </head>
+
 <body>
   <header class="topbar">
-    <a class="brand" href="#home" aria-label="RandomBlenderGuy home">RandomBlenderGuy</a>
+    <a class="brand" href="#home" aria-label="RandomBlenderGuy home">
+      RandomBlenderGuy
+    </a>
+
     <nav aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#about">About Me</a>
@@ -30,94 +97,188 @@
   <main>
     <section id="home">
       <h1>Welcome to my corner of the web.</h1>
-      <p class="lead">I'm RandomBlenderGuy, also known as <strong>RBG or RNDBG</strong>. This is my site where I share all my projects I work on, or tell you more about myself.</p>
-      <p class="intro-note">Use the links above to learn a little about me or explore my projects.</p>
+
+      <p class="lead">
+        I'm RandomBlenderGuy, also known as <strong>RBG or RNDBG</strong>.
+        This is my site where I share all my projects I work on, or tell you
+        more about myself.
+      </p>
+
+      <p class="intro-note">
+        Use the links above to learn a little about me or explore my projects.
+      </p>
     </section>
 
     <section id="about">
       <h1>About Me</h1>
-      <p class="lead">I'm RandomBlenderGuy, and I go by RBG or RNDBG online.</p>
+
+      <p class="lead">
+        I'm RandomBlenderGuy, and I go by RBG or RNDBG online.
+      </p>
+
       <div class="empty-state">
         <p><strong>A little more about me</strong></p>
-        <p>I'm a developer on Android Studio, and Blender user with a love for creating 3D models and animations. When I'm not coding, You'll maybe find me playing games. I like to play games like Minecraft, MSFS 2024, Forza Horizon 6,5,4, and 3 editions, and maybe some Roblox.</p>
+
+        <p>
+          I'm a developer on Android Studio, and Blender user with a love for
+          creating 3D models and animations. When I'm not coding, You'll maybe
+          find me playing games. I like to play games like Minecraft, MSFS 2024,
+          Forza Horizon 6,5,4, and 3 editions, and maybe some Roblox.
+        </p>
       </div>
     </section>
 
     <section id="projects">
-  <h1>Projects</h1>
-  <p class="lead">
-    A few things I've made, explored, or am currently working on.
-  </p>
+      <h1>Projects</h1>
 
-  <div class="projects-grid">
-    <article class="project-card">
-      <h2>Sound-To-Haptics</h2>
-      <p>
-        An Android app that converts audio into haptic tracks
-        for synchronized hapticfeedback.
+      <p class="lead">
+        A few things I've made, explored, or am currently working on.
       </p>
-      <a
-        href="https://github.com/RNDMBG/Sound-To-Haptics"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View Repository ↗
-      </a>
-    </article>
 
-    <article class="project-card">
-      <h2>Trellis 3.2.8 Open Source</h2>
-      <p>
-        An open-source, ARM64-recompiled version of the
-        decompiled Vine 3.2.8 Android application.
+      <div id="projects-grid" class="projects-grid" aria-live="polite">
+        <p>Loading projects from GitHub…</p>
+      </div>
+
+      <p class="github-link">
+        <a
+          href="https://github.com/RNDMBG?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          You may find more on my GitHub profile ↗
+        </a>
       </p>
-      <a
-        href="https://github.com/RNDMBG/Trellis-3.2.8-Open-Source"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View Repository ↗
-      </a>
-    </article>
-  </div>
-
-  <p class="github-link">
-    <a
-      href="https://github.com/RNDMBG?tab=repositories"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      You may find more on my GitHub profile ↗
-    </a>
-  </p>
-</section>
+    </section>
   </main>
 
   <footer>Made by RandomBlenderGuy, and some dreams.</footer>
+
   <script>
     (() => {
-      const pages = Array.from(document.querySelectorAll('main > section'));
-      const links = Array.from(document.querySelectorAll('a[href^="#"]'));
+      const pages = Array.from(document.querySelectorAll("main > section"));
+      const navigationLinks = Array.from(
+        document.querySelectorAll('nav a[href^="#"]')
+      );
 
       function showPage() {
         const requested = location.hash.slice(1);
-        const pageId = pages.some((page) => page.id === requested) ? requested : 'home';
+        const pageId = pages.some((page) => page.id === requested)
+          ? requested
+          : "home";
+
         pages.forEach((page) => {
           page.hidden = page.id !== pageId;
         });
-        links.forEach((link) => {
-          if (link.getAttribute('href') === '#' + pageId) {
-            link.setAttribute('aria-current', 'page');
+
+        navigationLinks.forEach((link) => {
+          if (link.getAttribute("href") === "#" + pageId) {
+            link.setAttribute("aria-current", "page");
           } else {
-            link.removeAttribute('aria-current');
+            link.removeAttribute("aria-current");
           }
         });
       }
 
-      window.addEventListener('hashchange', showPage);
-      window.addEventListener('popstate', showPage);
+      window.addEventListener("hashchange", showPage);
+      window.addEventListener("popstate", showPage);
       showPage();
     })();
+
+    async function loadGitHubProjects() {
+      const grid = document.getElementById("projects-grid");
+
+      if (!grid) return;
+
+      grid.setAttribute("aria-busy", "true");
+
+      try {
+        const repositories = [];
+
+        // Fetch every page of public repositories.
+        for (let page = 1; ; page++) {
+          const url = new URL(
+            "https://api.github.com/users/RNDMBG/repos"
+          );
+
+          url.search = new URLSearchParams({
+            type: "owner",
+            per_page: "100",
+            page: String(page)
+          });
+
+          const response = await fetch(url, {
+            headers: {
+              Accept: "application/vnd.github+json"
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error(`GitHub API returned ${response.status}`);
+          }
+
+          const batch = await response.json();
+          repositories.push(...batch);
+
+          if (batch.length < 100) {
+            break;
+          }
+        }
+
+        // Show the newest-created repositories first.
+        repositories.sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
+
+        if (repositories.length === 0) {
+          grid.replaceChildren(
+            document.createTextNode("No public repositories found.")
+          );
+          return;
+        }
+
+        const cards = repositories.map((repository) => {
+          const card = document.createElement("article");
+          card.className = "project-card";
+
+          const title = document.createElement("h2");
+          title.textContent = repository.name;
+
+          const description = document.createElement("p");
+          description.textContent =
+            repository.description?.trim() ||
+            "No description added on GitHub yet.";
+
+          const link = document.createElement("a");
+          link.href = repository.html_url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "View Repository ↗";
+
+          card.append(title, description, link);
+          return card;
+        });
+
+        grid.replaceChildren(...cards);
+      } catch (error) {
+        console.error("Could not load GitHub repositories:", error);
+
+        const message = document.createElement("p");
+        message.textContent = "Projects could not be loaded right now. ";
+
+        const profileLink = document.createElement("a");
+        profileLink.href = "https://github.com/RNDMBG?tab=repositories";
+        profileLink.target = "_blank";
+        profileLink.rel = "noopener noreferrer";
+        profileLink.textContent = "Browse all repositories on GitHub ↗";
+
+        message.append(profileLink);
+        grid.replaceChildren(message);
+      } finally {
+        grid.removeAttribute("aria-busy");
+      }
+    }
+
+    loadGitHubProjects();
   </script>
 </body>
 </html>
