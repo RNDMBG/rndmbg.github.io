@@ -141,7 +141,7 @@
 
   <main>
     <section id="home">
-      <h1>Welcome to my corner of the web.</h1>
+      <h1>Welcome to my little corner on the web!</h1>
 
       <p>
         I'm RandomBlenderGuy, also known as <strong>RBG or RNDBG</strong>.
@@ -149,7 +149,7 @@
         more about myself.
       </p>
 
-      <p>Use the links above to explore the site.</p>
+      <p>Use the buttons above to see more cool stuff!</p>
     </section>
 
     <section id="about" hidden>
@@ -176,7 +176,7 @@
 
       <p>
         A list of things I've made, explored, or am currently working on.
-        This list is loaded from my public GitHub repositories.
+        This list is from my GitHub profile.
       </p>
 
       <div class="project-search">
@@ -184,7 +184,7 @@
         <input
           id="project-filter"
           type="search"
-          placeholder="Search project names and descriptions"
+          placeholder="Search project names or a description of one."
           autocomplete="off"
         >
       </div>
@@ -312,7 +312,6 @@
       try {
         const allRepositories = [];
 
-        // Fetch every page of public repositories.
         for (let page = 1; ; page++) {
           const url = new URL(
             "https://api.github.com/users/RNDMBG/repos"
@@ -350,7 +349,7 @@
       } catch (error) {
         console.error("Could not load GitHub repositories:", error);
         status.textContent =
-          "Projects could not be loaded right now. Please visit my GitHub profile.";
+          "Projects could not be loaded right now. You can still visit my profile to see all the repositories though!";
       }
     }
 
